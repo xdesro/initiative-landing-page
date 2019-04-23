@@ -15,6 +15,8 @@
     --accent: var(--color__pink);
 
     --breakpoint-md: 740px;
+
+    --footer-height: 75px;
 }
 *,
 *:before,
@@ -23,6 +25,7 @@
 }
 html {
     font-size: 100%;
+
     -webkit-text-size-adjust: 100%;
     font-variant-ligatures: none;
     -webkit-font-variant-ligatures: none;
@@ -38,8 +41,7 @@ body {
 .app {
     width: 690px;
     max-width: 100%;
-    margin: 0 auto;
-    margin-top: 200px;
+    margin: 100px auto 0;
     padding: 24px;
 }
 .app__title {
@@ -59,7 +61,7 @@ body {
 .background {
     position: fixed;
     z-index: -1;
-    bottom: -5vw;
+    bottom: -30vw;
     width: 100%;
     pointer-events: none;
 }
@@ -79,12 +81,14 @@ body {
 .background__image {
     display: block;
     width: 35vw;
-    min-width: 400px;
+    min-width: 300px;
+    max-width: 600px;
     margin: 0 auto;
 }
 .form {
     position: relative;
     display: grid;
+
     grid-template-columns: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 8px;
@@ -119,7 +123,7 @@ body {
     border: 1px solid;
     border-color: var(--secondary);
     border-radius: 8px;
-    background: transparent;
+    background: var(--background);
 }
 .form__field:focus {
     border-color: var(--primary);
@@ -138,7 +142,6 @@ body {
     cursor: pointer;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    border: none;
     border: 1px solid var(--primary);
     border-radius: 8px;
     background: var(--primary);
@@ -159,11 +162,12 @@ body {
     position: fixed;
     right: 0;
     bottom: 0;
-    left: 0;
-    display: block;
+    display: none;
+    height: var(--footer-height);
     padding: 20px;
     text-align: right;
     color: var(--secondary);
+    background-image: linear-gradient(to left, var(--background), transparent);
 }
 .accent {
     font-weight: bold;
@@ -172,21 +176,26 @@ body {
 
 @media screen and (min-width: 740px) {
     .app {
+        margin-top: 200px;
         text-align: center;
     }
     .app__title {
         letter-spacing: 24px;
     }
+    .background {
+        bottom: -10vw;
+    }
     .form {
         grid-template-areas: 'label .' 'field button';
         grid-template-columns: 1fr auto;
-    }
-    .form__label {
     }
     .form__field {
         grid-area: field;
     }
     .form__button {
         grid-area: button;
+    }
+    .footer {
+        display: inline-block;
     }
 }

@@ -5,20 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Initiative App | Coming Soon</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="app-title">Initiative</h1>
-        <p>A modern solution for tabletop role-playing games.<br />
+    <main class="container app">
+        <h1 class="app__title">Initiative</h1>
+        <p class="app__subtitle">A modern solution for tabletop role-playing games.<br />
             Coming soon to iOS and the web.</p>
-        <form class="form-signup" method="POST" data-netlify="true" name="signup">
-            <input type="email" name="email" placeholder="email" id="signup-email">
-            <button type="submit">Stay Informed</button>
+        <form class="form" method="POST" name="signup" data-netlify="true">
+            <label class="form__label" for="email">email</label>
+            <input class="form__field" type="email" name="email" placeholder="hi@crit.fail" id="signup-email">
+            <button class="form__button" type="submit">Stay Informed</button>
         </form>
+    </main>
+    <div class="background">
+        <img class="background__image" alt="Decorative Icosahedron Icon" src="d20.svg" role="presentation">
     </div>
-    <script src="index.js"></script>
+    <footer class="footer">
+        <p class="footer__text">made with <span class="accent">:heart:</span> by the crit.fail team.</p>
+    </footer>
 </body>
 
 </html>

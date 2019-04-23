@@ -1,0 +1,171 @@
+:root {
+    --color__mono-07: #111;
+    --color__mono-54: #9e9e9e;
+    --color__mono-100: #fff;
+    --color__pink: #ff0080;
+
+    --font__monospace: 'Roboto Mono', monospace;
+    --font__system: 'SF Pro Display', 'SF Pro Text', 'Roboto', -apple-system,
+        BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+    --background: var(--color__mono-07);
+    --primary: var(--color__mono-100);
+    --secondary: var(--color__mono-54);
+    --accent: var(--color__pink);
+}
+html {
+    font-size: 100%;
+    text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+    -webkit-text-size-adjust: 100%;
+    font-variant-ligatures: none;
+    -webkit-font-variant-ligatures: none;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    font-family: var(--font__system);
+    background-color: var(--background);
+}
+.app {
+    width: 690px;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+}
+.app__title {
+    font-family: var(--font__monospace);
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 24px;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+.app__subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 48px;
+    color: var(--secondary);
+}
+.background {
+    position: fixed;
+    z-index: -1;
+    bottom: -5vw;
+    width: 100%;
+    pointer-events: none;
+}
+.background:before {
+    position: absolute;
+    top: -10vw;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        var(--background) 90%
+    );
+}
+.background__image {
+    display: block;
+    width: 35vw;
+    min-width: 400px;
+    margin: 0 auto;
+}
+.form {
+    position: relative;
+    display: grid;
+
+    grid-template-areas: 'label .' 'field button';
+    grid-template-columns: 1fr auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 8px;
+}
+
+.form:invalid:not(:focus-within):after {
+    font-family: var(--font__monospace);
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    content: 'Please enter a valid email.';
+    text-transform: lowercase;
+    color: var(--secondary);
+}
+.form__label {
+    font-family: var(--font__monospace);
+    margin-left: 8px;
+    color: var(--secondary);
+
+    align-self: end;
+    justify-self: start;
+}
+.form__field {
+    font-family: var(--font__system);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px;
+    transition: border 0.2s ease;
+    color: var(--secondary);
+    border: 1px solid;
+    border-color: var(--secondary);
+    border-radius: 8px;
+    background: transparent;
+
+    grid-area: field;
+}
+.form__field:focus {
+    border-color: var(--primary);
+}
+.form__field:invalid:not(:focus) {
+    border-color: var(--accent);
+}
+.form__field:valid:not(:focus) {
+    color: var(--primary);
+}
+.form__button {
+    font-family: var(--font__monospace);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 32px;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border: none;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    background: var(--primary);
+
+    grid-area: button;
+}
+.form__button:hover,
+.form__button:focus {
+    color: var(--primary);
+    background: var(--background);
+}
+.form__button:active {
+    color: var(--background);
+    border-color: var(--accent);
+    background-color: var(--accent);
+}
+.footer {
+    font-family: var(--font__monospace);
+    font-size: 12px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding: 20px;
+    text-align: right;
+    color: var(--secondary);
+}
+.accent {
+    font-weight: bold;
+    color: var(--accent);
+}

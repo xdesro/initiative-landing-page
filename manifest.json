@@ -1,0 +1,10 @@
+{
+  "name": "Initiative App",
+  "short_name": "Initiative",
+  "theme_color": "#111111",
+  "background_color": "#111111",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}

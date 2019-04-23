@@ -13,10 +13,16 @@
     --primary: var(--color__mono-100);
     --secondary: var(--color__mono-54);
     --accent: var(--color__pink);
+
+    --breakpoint-md: 740px;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 html {
     font-size: 100%;
-    text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
     -webkit-text-size-adjust: 100%;
     font-variant-ligatures: none;
     -webkit-font-variant-ligatures: none;
@@ -34,13 +40,13 @@ body {
     max-width: 100%;
     margin: 0 auto;
     margin-top: 200px;
-    text-align: center;
+    padding: 24px;
 }
 .app__title {
     font-family: var(--font__monospace);
     font-size: 36px;
     font-weight: normal;
-    letter-spacing: 24px;
+    letter-spacing: 2.5vw;
     text-transform: uppercase;
     color: var(--primary);
 }
@@ -79,9 +85,7 @@ body {
 .form {
     position: relative;
     display: grid;
-
-    grid-template-areas: 'label .' 'field button';
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 8px;
 }
@@ -116,8 +120,6 @@ body {
     border-color: var(--secondary);
     border-radius: 8px;
     background: transparent;
-
-    grid-area: field;
 }
 .form__field:focus {
     border-color: var(--primary);
@@ -140,8 +142,6 @@ body {
     border: 1px solid var(--primary);
     border-radius: 8px;
     background: var(--primary);
-
-    grid-area: button;
 }
 .form__button:hover,
 .form__button:focus {
@@ -168,4 +168,25 @@ body {
 .accent {
     font-weight: bold;
     color: var(--accent);
+}
+
+@media screen and (min-width: 740px) {
+    .app {
+        text-align: center;
+    }
+    .app__title {
+        letter-spacing: 24px;
+    }
+    .form {
+        grid-template-areas: 'label .' 'field button';
+        grid-template-columns: 1fr auto;
+    }
+    .form__label {
+    }
+    .form__field {
+        grid-area: field;
+    }
+    .form__button {
+        grid-area: button;
+    }
 }
